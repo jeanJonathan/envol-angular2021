@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+  import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'envol-angular2021';
+  title = 'Bienvenue dans le TP Angular ENVOL 2021';
+  superheroes : string[] = ["Hulk","Spider-Man","Thor","Iron Man"];
+  newHero: string = 'Black Widow';
+  newHeroAdded: boolean = false;
+
+  addNewHero():void{ //pas obliger de preciser le type de retour void
+      if (!this.superheroes.includes(this.newHero)){
+        this.superheroes.push(this.newHero);
+        this.newHeroAdded = true;
+      }
+  }
 }
