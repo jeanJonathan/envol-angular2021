@@ -1,10 +1,13 @@
 <h1>{{title}}</h1>
 <ul>
-  <li *ngFor="let i of superheroes ">
+  <!--Enutilisant la directive ngClass, on applique la classe css isImportant si i==Thor--->
+  <li *ngFor="let i of superheroes " [ngClass]="{'isImportant': i === 'Thor'}">
     <p *ngIf="i === 'Hulk'">
       <span class="fas fa-check"></span>
-    </p>{{i}}
+    </p>
+    {{i}}
   </li>
 </ul>
+<!---On relie la fonction addNewHero() a l'evenement click--->
 <button type="button" (click)="addNewHero()">addNewHero</button>
 
