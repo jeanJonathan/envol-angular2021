@@ -1,4 +1,5 @@
   import { Component } from '@angular/core';
+  import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -17,5 +18,7 @@ export class AppComponent {
       }
     this.superheroes.push(this.newHero);
     this.newHeroAdded = true; // le bouton se desactive (la propriete de disable devient true) car la propriete activee
+  }
+  constructor(private httpClientModule:HttpClientModule) {
   }
 }
