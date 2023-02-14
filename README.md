@@ -6,4 +6,3 @@ Nous allons ensuite visualiser ces données sous forme d'un tableau et d'un hist
 
 Enfin nous verrons comment compiler et générer l'application pour la mise en production.
 
-
