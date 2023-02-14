@@ -18,8 +18,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   <!---Lorqu'on click sur le bouton. L'appel de la methode onClick pour declenche l'evement de sortie de l'enfant -->
   <button type="button" [disabled]="newHeroAdded" (click)="onClick()">addNewHero</button>
   <!--Si disabled === true alors bouton desactiver sinon bouton activer--->
-
-
   `,
 })
 export class SuperHeroesListComponentComponent {
@@ -32,6 +30,7 @@ export class SuperHeroesListComponentComponent {
   }
   onClick(){
     this.addNewHero.emit();
+    this.newHeroAdded = true;
   }
 
 }
