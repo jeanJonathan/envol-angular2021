@@ -8,6 +8,7 @@
     {{i}}
   </li>
 </ul>
-<!---On relie la fonction addNewHero() a l'evenement click--->
-<button type="button" (click)="addNewHero()">addNewHero</button>
-
+<!---On lie le bouton a la valeur de newHeroAdded cad si
+la propriete nesHeroAdded prend la valeur true le bouton ce desactive -->
+<button type="button" [disabled]="newHeroAdded" (click)="addNewHero()">addNewHero</button>
+<!--Si disabled === true alors bouton desactiver sinon bouton activer--->
