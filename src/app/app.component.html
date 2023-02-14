@@ -1,7 +1,3 @@
 <h1>{{title}}</h1>
-<app-super-heroes-list-component [superheroes]="superheroes"></app-super-heroes-list-component>
-<!---On lie le bouton a la valeur de newHeroAdded cad si
-la propriete nesHeroAdded prend la valeur true le bouton ce desactive -->
-<button type="button" [disabled]="newHeroAdded" (click)="addNewHero()">addNewHero</button>
-<!--Si disabled === true alors bouton desactiver sinon bouton activer--->
+<app-super-heroes-list-component [superheroes]="superheroes" (addNewHero)="addNewHero()" ></app-super-heroes-list-component>
 
