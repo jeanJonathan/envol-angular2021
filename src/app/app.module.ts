@@ -8,14 +8,14 @@ import { SuperHeroesListComponentComponent } from './super-heroes-list-component
 //Importation du service HttpClientModule
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponentComponent } from './home-component/home-component.component';
-import { SuperHeroesComponentComponent } from './super-heroes-component/super-heroes-component.component';
+import { SuperHereosComponentComponent } from './super-hereos-component/super-hereos-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SuperHeroesListComponentComponent,
     HomeComponentComponent,
-    SuperHeroesComponentComponent
+    SuperHereosComponentComponent
   ],
   imports: [
     BrowserModule,
