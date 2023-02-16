@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {SuperHereosComponentComponent} from "./super-hereos-component/super-hereos-component.component";
+//import {SuperHereosComponentComponent} from "./super-hereos-component/super-hereos-component.component";
 import {HomeComponentComponent} from "./home-component/home-component.component";
 
 /* La dernière route avec le chemin ** est une route wildcard qui redirige
@@ -8,7 +8,7 @@ import {HomeComponentComponent} from "./home-component/home-component.component"
 const routes: Routes = [
   { path: 'home', component: HomeComponentComponent },
   { path : '', redirectTo:'home',pathMatch: 'full'},
-  { path: 'super-heroes', component: SuperHereosComponentComponent },
+  //{ path: 'super-heroes', component: SuperHereosComponentComponent },
   { path : '**',redirectTo:'home',pathMatch: 'full'}
 ];
 @NgModule({
