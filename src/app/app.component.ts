@@ -1,5 +1,6 @@
   import { Component,OnInit } from '@angular/core';
   import {HttpClient} from "@angular/common/http";
+  import { delay } from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -19,12 +20,19 @@ export class AppComponent implements OnInit{
 }
   constructor(private http:HttpClient) {
   }
-
+  /*Fonctino Callback de l'observateur*/
   ngOnInit(): void {
-    this.http.get<string[]>('assets/superheroes.json')
-      .subscribe((superheroes: string[]) => {
+    // @ts-ignore
+    // @ts-ignore
+    //Ajout du delais de chargement  la requette http : .pipe(delay(1000)) apres la methode get afin de pourvoir voir le chargement et donc
+    //voir le spinner avant l'execution de la requette http
+    this.http.get<string[]>('assets/superheroes.json').pipe(delay(1000)).subscribe((superheroes: string[]) => {
         this.superheroes = superheroes;
+        this.superheroesIsLoading = false;
+        this.superheroesIsLoaded = true;
       });
   }
+  superheroesIsLoading : boolean = false;
+  superheroesIsLoaded : boolean = false;
 
 }

@@ -1,3 +1,8 @@
 <h1>{{title}}</h1>
-<app-super-heroes-list-component [superheroes]="superheroes" (addNewHero)="addNewHero()" ></app-super-heroes-list-component>
+<app-super-heroes-list-component
+  [superheroes]="superheroes"
+  [superheroesIsLoading]="superheroesIsLoading"
+  [superheroesIsLoaded]="superheroesIsLoaded"
+  (addNewHero)="addNewHero()"
+></app-super-heroes-list-component>
 
