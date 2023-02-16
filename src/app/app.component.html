@@ -1,8 +1,37 @@
-<h1>{{title}}</h1>
-<app-super-heroes-list-component
-  [superheroes]="superheroes"
-  [superheroesIsLoading]="superheroesIsLoading"
-  [superheroesIsLoaded]="superheroesIsLoaded"
-  (addNewHero)="addNewHero()"
-></app-super-heroes-list-component>
+<!--Utilisation de Boostrap pour creer la barre de navigation responsive-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <!---->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!--On creer le liens vers la route home-->
+        <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="noSuperHeroesList()" >Home</a>
+      </li>
+      <li class="nav-item">
+        <!--On creer le liens vers la route super-hereos-->
+        <a class="nav-link" routerLink="/super-heroes" routerLinkActive="active" (click)="superHeroesList()">Super Heroes</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
+<h1>{{title}}</h1>
+<!--Pour ajouter le contenue du composant actif cad le Composant que l'utilisateur a choisir dans la barre
+de navigation-->
+<router-outlet></router-outlet>
+<!--Rmq : Ainsi, lorsque l'utilisateur clique sur le lien "Liste de Super-Héros", il sera redirigé vers
+ la page SuperHeroesComponent qui affichera la liste des super-héros, et lorsque l'utilisateur est sur la page HomeComponent, la liste des super-héros ne sera pas affichée.-->
+
+<!--On utilise la directive *ngIf pour conditionner l'affichage de ce Composant--->
+<div *ngIf="showSuperHeroesList">
+  <app-super-heroes-list-component
+    [superheroes]="superheroes"
+    [superheroesIsLoading]="superheroesIsLoading"
+    [superheroesIsLoaded]="superheroesIsLoaded"
+    (addNewHero)="addNewHero()"
+  ></app-super-heroes-list-component>
+</div>

@@ -7,11 +7,15 @@ import { SuperHeroesListComponentComponent } from './super-heroes-list-component
 
 //Importation du service HttpClientModule
 import {HttpClientModule} from "@angular/common/http";
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { SuperHeroesComponentComponent } from './super-heroes-component/super-heroes-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SuperHeroesListComponentComponent
+    SuperHeroesListComponentComponent,
+    HomeComponentComponent,
+    SuperHeroesComponentComponent
   ],
   imports: [
     BrowserModule,

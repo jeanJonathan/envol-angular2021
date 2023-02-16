@@ -34,5 +34,13 @@ export class AppComponent implements OnInit{
   }
   superheroesIsLoading : boolean = false;
   superheroesIsLoaded : boolean = false;
-
-}
+  //On utilise cette variable pour parametrer l'affichage de la liste des super heros
+  // si vrai alors on voir la liste, si faut alors on ne voir pas la liste
+  showSuperHeroesList : boolean = false;
+  superHeroesList(){
+    this.showSuperHeroesList = true;
+  }
+  noSuperHeroesList(){
+    this.showSuperHeroesList = false;
+  }
+  }
