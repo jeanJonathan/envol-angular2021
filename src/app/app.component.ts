@@ -1,8 +1,9 @@
   import { Component,OnInit } from '@angular/core';
   import {HttpClient} from "@angular/common/http";
   import { delay } from 'rxjs'
+  import {Router} from "@angular/router";
 
-@Component({
+  @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit{
           this.superheroes.push(this.newHero);
       }
 }
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,private router:Router ) {
   }
   /*Fonctino Callback de l'observateur*/
   ngOnInit(): void {
@@ -39,7 +40,13 @@ export class AppComponent implements OnInit{
   showSuperHeroesList : boolean = false;
   superHeroesList(){
     this.showSuperHeroesList = true;
+    /*ainsi superHeroesList() est appelée QUE lorsqu'on clique sur le bouton "Liste de Super-Héros"
+    * Des lors la variable router utilisant le Servce Router permettra de naviguer ves la route
+    * /super-hereos pour afficher la liste des super hereos*/
+
+    this.router.navigate(['/super-heroes']);
   }
+  /*On utilise le service Router pour naviguer vers la route /super-heroes lorsque cette methode est appele*/
   noSuperHeroesList(){
     this.showSuperHeroesList = false;
   }
