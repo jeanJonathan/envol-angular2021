@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-super-heroes-list-component',
@@ -10,7 +10,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
         <span class="sr-only">Loading...</span>
     </div>
     <div *ngIf="superheroesIsLoaded">
-    <p>Ceci est mon premier Component</p>
     <ul>
         <!--Enutilisant la directive ngClass, on applique la classe css isImportant si i==Thor--->
         <li *ngFor="let i of superheroes " [ngClass]="{'isImportant': i === 'Thor'}">
@@ -20,23 +19,55 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
             {{i}}
         </li>
     </ul>
-    <!---Lorqu'on click sur le bouton. L'appel de la methode onClick pour declenche l'evement de sortie de l'enfant -->
-        <button type="button" [disabled]="newHeroAdded" (click)="onClick()">addNewHero</button>
-    <!--Si disabled === true alors bouton desactiver sinon bouton activer--->
+      <!---Ajout du template driven Forms -->
+      <form (ngSubmit)="submit()" #newHeroForm="ngForm"> <!--#newHeroForm="ngForm pour faire reference a ngForm dans le formulaire-->
+        <!--C'est plus interessant de mettre le label et le input dans un meme bloc ;)-->
+        <div class="form-group">
+          <label for="newHero">Nouveau super héro</label>
+          <!---ngModele pour reliser le modele a la variable newHero dans le Component--->
+          <input type="text" class="form-control" id="newHero" name="newHero" [(ngModel)]="newHero" required>
+        </div>
+        <!---On désactive le bouton "Ajouter un nouveau héro" lorsque le formulaire est invalide ou que le champ "Nouveau super héro" est vide--->
+        <button type="submit" class="btn btn-primary" [disabled]="newHeroForm.invalid || newHero ===''">Ajouter un nouveau héro</button>
+      </form>
     </div>`,
 })
-export class SuperHeroesListComponentComponent {
-  @Input() superheroes : string[];
+export class SuperHeroesListComponentComponent implements  OnInit {
+  @Input() superheroes: string[];
   //Pour spécifier un paramètre de sortie sans valeur de retour, on utilise cette notation
-  @Output() addNewHero : EventEmitter<{}> = new EventEmitter<{}>();
-  @Input() newHeroAdded : boolean = false;
+  @Output() addNewHero: EventEmitter<{}> = new EventEmitter<{}>();
+  //@Input() newHeroAdded: boolean = false;
+
+  //Ajout de la variable newHero
+
+  newHero: string ='';
   constructor() {
-    this.superheroes =[];
+    this.superheroes = [];
   }
-  onClick(){
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  /*onClick() {
     this.addNewHero.emit();
     this.newHeroAdded = true;
   }
+  */
+
   @Input() superheroesIsLoading = true;
   @Input() superheroesIsLoaded = false;
+
+  addTheNewHero() {
+    this.superheroes.push(this.newHero);
+    this.newHero = '';
+
+  }
+  // Ajouter la fonction submit()
+  submit() {
+    // Si newHero n'est pas vide alors on ajoute un nouvel hereo
+    if (this.newHero !== '') {
+      this.addTheNewHero();
+    }
+  }
 }

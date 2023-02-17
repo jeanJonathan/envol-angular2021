@@ -8,8 +8,8 @@ import {SuperHereosComponentComponent} from "../../src/app/super-hereos-componen
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponentComponent },
-  //{ path: '', loadChildren: () => import('super-heroes.module').then(m => m.SuperHeroesModule),
- { path: 'super-heroes', component: SuperHereosComponentComponent }
+  { path: 'super-heroes', component: SuperHereosComponentComponent },
+  //{ path: '', loadChildren: () => import('super-heroes.module').then(m => m.SuperHeroesModule)
 ];
 
 @NgModule({
