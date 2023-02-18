@@ -1,6 +1,7 @@
 
 # EnvolAngular2021
-Il s'agit des tps du site https://cesam.lam.fr/envol-2021-tp-angular/les_bases/ pour m'initier à Angular Déroulement du TP Les données traitées seront tout d'abord statiques (table HTML), puis dynamiques provenant de web services.
+Il s'agit des tps du site https://cesam.lam.fr/envol-2021-tp-angular/les_bases/ pour m'initier à Angular.
+Déroulement du TP Les données traitées seront tout d'abord statiques (table HTML), puis dynamiques provenant de web services.
 
 Nous allons ensuite visualiser ces données sous forme d'un tableau et d'un histogramme. Nous rendrons notre interface interactive avec l'intégration d'un formulaire de recherche.
 
